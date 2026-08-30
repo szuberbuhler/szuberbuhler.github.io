@@ -10,8 +10,8 @@ I'm Santos. I spent two and a half years studying finance at university before r
 
 This site is where I document that process in public. The plan:
 
-- **Writeups** of retired Hack The Box machines. I'm not going to stick to only defensive boxes or Sherlocks; I want to attack boxes too, because understanding how things get broken is what makes you better at detecting it
-- **Notes** on Linux, networking, and detection as I go deeper into blue team fundamentals
+- Writeups of retired Hack The Box machines. I'm not going to stick to only defensive boxes or Sherlocks; I want to attack boxes too, because understanding how things get broken is what makes you better at detecting it
+- Notes on Linux, networking, and detection as I go deeper into blue team fundamentals
 
 Why write in public? Because explaining something is the only honest test of whether you understand it. If these notes help one person stuck on the same machine I was stuck on, even better.
 
