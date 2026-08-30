@@ -10,7 +10,7 @@ I got here through finance (a couple of years at university), some programming h
 
 This site is where I document that process:
 
-- **Writeups** of retired Hack The Box machines
+- Writeups of retired Hack The Box machines
 - Notes on Linux, networking and detection
 
 I also train on [Hack The Box](https://www.hackthebox.com).
