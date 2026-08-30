@@ -27,6 +27,16 @@ enableRobotsTXT = true
       { name = 'About', url = '/about/' }
     ]
 
+  [[params.socialIcons]]
+    name = 'github'
+    url = 'https://github.com/szuberbuhler'
+  [[params.socialIcons]]
+    name = 'linkedin'
+    url = 'https://www.linkedin.com/in/santos-zuberbuhler'
+  [[params.socialIcons]]
+    name = 'email'
+    url = 'mailto:contact@szuberbuhler.com'
+
 [outputs]
   home = ['HTML', 'RSS', 'JSON']  # JSON para la búsqueda
 
