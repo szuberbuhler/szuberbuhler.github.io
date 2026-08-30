@@ -1,0 +1,40 @@
+{{ define "main" }}
+<div class="post-wrapper writeups-index">
+  <header class="post-header">
+    <h1 class="post-title">{{ .Title }}</h1>
+    {{ with .Content }}<div class="post-content">{{ . }}</div>{{ end }}
+  </header>
+
+  {{ $byType := dict }}
+  {{ range where site.RegularPages "Section" "writeups" }}
+    {{ $cat := "other" }}
+    {{ with .Params.categories }}{{ $cat = index . 0 }}{{ end }}
+    {{ $list := index $byType $cat | default slice }}
+    {{ $byType = merge $byType (dict $cat ($list | append .)) }}
+  {{ end }}
+
+  {{ range $cat := slice "machines" "sherlocks" "challenges" "other" }}
+    {{ $posts := index $byType $cat }}
+    {{ if $posts }}
+    <h2 class="writeup-type-heading" id="{{ $cat }}">{{ $cat | title }}</h2>
+    <div class="writeup-cards">
+      {{ range $posts.ByDate.Reverse }}
+      <a class="writeup-card" href="{{ .RelPermalink }}">
+        <div class="writeup-card-body">
+          <h3 class="writeup-card-title">{{ .Title }}</h3>
+          <div class="writeup-card-chips">
+            {{ with .Params.difficulty }}<span class="chip chip-{{ . | lower }}">{{ . }}</span>{{ end }}
+            {{ with .Params.os }}<span class="chip">{{ . }}</span>{{ end }}
+            {{ $seen := slice (.Params.os | default "" | lower) (.Params.difficulty | default "" | lower) }}
+            {{ range .Params.tags }}{{ if not (in $seen (lower .)) }}<span class="chip chip-muted">{{ . }}</span>{{ $seen = $seen | append (lower .) }}{{ end }}{{ end }}
+          </div>
+          {{ with .Params.summary }}<p class="writeup-card-summary">{{ . }}</p>{{ end }}
+          <span class="writeup-card-date">{{ .Date.Format "Jan 2006" }}{{ if .Params.draft }} · <em>draft</em>{{ end }}</span>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+    {{ end }}
+  {{ end }}
+</div>
+{{ end }}
